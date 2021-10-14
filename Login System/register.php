@@ -24,20 +24,20 @@ if (isset($_POST['submit'])) {
 					VALUES ('$username', '$email', '$password')";
 			$result = mysqli_query($conn, $sql);
 			if ($result) {
-				echo "<script>alert('Wow! User Registration Completed.')</script>";
+				echo "<script>alert('Oba! Novo Usuario cadastrado com Sucesso.')</script>";
 				$username = "";
 				$email = "";
 				$_POST['password'] = "";
 				$_POST['cpassword'] = "";
 			} else {
-				echo "<script>alert('Woops! Something Wrong Went.')</script>";
+				echo "<script>alert('Ops! Alguma coisa deu errada.')</script>";
 			}
 		} else {
-			echo "<script>alert('Woops! Email Already Exists.')</script>";
+			echo "<script>alert('Ops! Email ja cadastrado.')</script>";
 		}
 		
 	} else {
-		echo "<script>alert('Password Not Matched.')</script>";
+		echo "<script>alert('Senhas não combinam.')</script>";
 	}
 }
 
