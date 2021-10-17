@@ -43,5 +43,8 @@
         public function incrementa($m){
             $this->quantidadeProduto = $quantidadeProduto + $m;
         }
+        public function decrementa($m){
+            $this->quantidadeProduto = $quantidadeProduto - $m;
+        }
     }
 ?>
