@@ -5,7 +5,7 @@
     <body>
             <div class="card" >
                 <div class="card-header">
-                    <div class="alert alert-warning" role="alert">
+                    <div class="alert alert-primary" role="alert">
                         <center> Setor para Cadastro de Produtos </center>
                     </div>
                 </div>
