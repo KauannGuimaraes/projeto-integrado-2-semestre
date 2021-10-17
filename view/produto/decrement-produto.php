@@ -1,10 +1,31 @@
 <html>
+    <head>
+        <link href="../bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    </head>
     <body>
-        <form action="#">
-            <p>Decrementar produto:</p>
-            id do produto: <input type="number" name="idProduto">
-            Quantidade: <input type="number" name="quantidade">
-            <button type="submit">adicionar</button>
-        </form>
+
+        <div class="card" >
+                <div class="card-header">
+                    <div class="alert alert-danger" role="alert">
+                        <center> Setor para Descrementar de Produtos </center>
+                    </div>
+                </div>
+            </div>    
+            <center>
+            <br><br><br>
+            <div class="card" style="width: 20rem;">
+            <form class="container-sm">
+                <div class="mb-3">
+                    <label for="producttype" class="form-label">id do produto</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Quantidade</label>
+                    <input type="number" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+            </div>
+            </center> 
     </body>
 </html>
