@@ -4,9 +4,11 @@
     $produto = new Produto();
     $produtoDao = new ProdutoDAO();
     $decremento = $_POST['quantidade'];
+    echo $decremento;
     $produto->setIdProduto($_POST['idProduto']);
     $quantidade = $produto->getQuantidadeProduto() + $decremento;
     $produto->setQuantidadeProduto($quantidade);
-    $produtoDao->incrementaProduto($produto);
-    header("Location:produto/increment-produto.php")
+    echo $produto->getQuantidadeProduto();
+    //$produtoDao->incrementaProduto($produto);
+    //header("Location:produto/increment-instance.php")
 ?>

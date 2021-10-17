@@ -40,5 +40,8 @@
         public function setQuantidadeProduto($m){
             $this->quantidadeProduto = $m;
         }
+        public function incrementa($m){
+            $this->quantidadeProduto = $quantidadeProduto + $m;
+        }
     }
 ?>
