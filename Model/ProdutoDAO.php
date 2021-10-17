@@ -1,5 +1,5 @@
 <?php
-    public class ProdutoDAO extends Conexao{
+    class ProdutoDAO extends Conexao{
         function selecionaProduto($produto){
             try {
                 $pdo = Conection::getInstance();
@@ -73,7 +73,7 @@
         function insereProduto($produto){
             try {
                 $pdo = Conection::getInstance();
-                $sql = ("insert into Produto(NomeProduto, DescricaoProduto, QuantidadeProduto, PrecoProduto) values (?, ?, ?, ?)");
+                $sql = ("insert into Produto(NomeProduto, DescricaoProduto, QuantidadeProduto, PrecoProduto, Empregado_idEmpregado) values (?, ?, ?, ?, 1)");
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindValue(1, $produto->getNomeProduto());
                 $stmt->bindValue(2, $produto->getDescricaoProduto());

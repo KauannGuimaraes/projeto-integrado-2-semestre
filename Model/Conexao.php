@@ -2,8 +2,8 @@
 abstract class Conexao{
         public static function getInstance(){
             $servername = "localhost";
-            $username = "id17766298_root";
-            $password = "B31mont$3n@091326";
+            $username = "root";
+            $password = "";
             $database = "id17766298_projetosige";
             try {
                 $pdo = new PDO("mysql:host=$servername;dbname=$database", $username, $password);

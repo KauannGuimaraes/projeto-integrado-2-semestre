@@ -8,5 +8,5 @@
     $quantidade = $produto->getQuantidadeProduto() - $decremento;
     $produto->setQuantidadeProduto($quantidade);
     $produtoDao->decrementaProduto($produto);
-    header("Location:produto/add-produto.php")
+    header("Location:produto/decrement-produto.php")
 ?>

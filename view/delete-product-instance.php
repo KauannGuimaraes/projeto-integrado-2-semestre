@@ -5,5 +5,5 @@
     $produtoDao = new ProdutoDAO();
     $produto->setIdProduto($_POST['idProduto']);
     $produtoDao->deleteProduto($produto);
-    header("Location:produto/add-produto.php")
+    header("Location:produto/delete-produto.php")
 ?>
