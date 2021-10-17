@@ -1,4 +1,7 @@
+<?php require_once "../acess/index.php"; ?>
+
 <html>
+
     <head>
         <link href="../bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet">
     </head>
