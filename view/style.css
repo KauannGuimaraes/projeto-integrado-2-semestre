@@ -1,0 +1,30 @@
+body {
+    padding: 0 15px;
+    margin: 0 15px;
+    font-family: lato, sans-serif, arial;
+ }
+
+#menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #3FC300;
+}
+
+#menu ul li {
+    float: left;
+}
+
+#menu  ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 95px;
+    text-decoration: none;
+}
+#menu  ul li a:hover,
+#menu .active {
+    background-color: #ddd;
+    color:black;
+}
