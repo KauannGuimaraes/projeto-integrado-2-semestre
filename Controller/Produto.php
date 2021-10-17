@@ -1,10 +1,18 @@
 <?php 
-    public class Produto {
+    class Produto {
         private $idProduto ;
         private $nomeProduto;
         private $descricaoProduto;
         private $quantidadeProduto;
+        private $precoProduto;
         
+        public function getPrecoProduto(){
+            return $this->precoProduto;
+        }
+        public function setPrecoProduto($m){
+            $this->precoProduto = $m;
+        }
+
         public function getIdProduto(){
             return $this->idProduto;
         }
