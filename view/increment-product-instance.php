@@ -3,12 +3,16 @@
     require_once "../Controller/Produto.php";
     $produto = new Produto();
     $produtoDao = new ProdutoDAO();
-    $decremento = $_POST['quantidade'];
-    echo $decremento;
+    $incremento = $_POST['quantidade'];
     $produto->setIdProduto($_POST['idProduto']);
-    $quantidade = $produto->getQuantidadeProduto() + $decremento;
+    $result = $produtoDao->selecionaProduto($produto);
+    foreach($result as $result){
+        $idProduto = $result['idProduto'];
+        $quantidadeProduto = $result['QuantidadeProduto'];
+    }
+    $produto->setQuantidadeProduto($quantidadeProduto);
+    $quantidade = $produto->getQuantidadeProduto() + $incremento;
     $produto->setQuantidadeProduto($quantidade);
-    echo $produto->getQuantidadeProduto();
-    //$produtoDao->incrementaProduto($produto);
-    //header("Location:produto/increment-instance.php")
+    $produtoDao->incrementaProduto($produto);
+    header("Location:produto/increment-produto.php")
 ?>
