@@ -19,10 +19,38 @@
                 $sql = ("update Produto set NomeProduto = ?, DescricaoProduto = ?, QuantidadeProduto = ?, PrecoProduto = ? where idProduto = ?");
                 $stmt= $pdo->prepare($sql);
                 $stmt->bindValue(1, $produto->getNomeProduto());
-                $stmt->bindValue(1, $produto->getDescricaoProduto());
+                $stmt->bindValue(2, $produto->getDescricaoProduto());
+                $stmt->bindValue(3, $produto->getQuantidadeProduto());
+                $stmt->bindValue(4, $produto->getPrecoProduto());
+                $stmt->bindValue(5, $produto->getIdProduto());
+                $stmt-> execute();
+                $result = $stmt->fetchAll();
+                return $result;
+            } catch (PDOException $ex) {
+                echo $ex;
+            }
+        }
+        function incrementaProduto($produto){
+            try {
+                $pdo = Conection::getInstance();
+                $sql = ("update Produto set QuantidadeProduto = ? where idProduto = ?");
+                $stmt= $pdo->prepare($sql);
                 $stmt->bindValue(1, $produto->getQuantidadeProduto());
-                $stmt->bindValue(1, $produto->getPrecoProduto());
-                $stmt->bindValue(1, $produto->getIdProduto());
+                $stmt->bindValue(2, $produto->getIdProduto());
+                $stmt-> execute();
+                $result = $stmt->fetchAll();
+                return $result;
+            } catch (PDOException $ex) {
+                echo $ex;
+            }
+        }
+        function decrementaProduto($produto){
+            try {
+                $pdo = Conection::getInstance();
+                $sql = ("update Produto set QuantidadeProduto = ? where idProduto = ?");
+                $stmt= $pdo->prepare($sql);
+                $stmt->bindValue(1, $produto->getQuantidadeProduto());
+                $stmt->bindValue(2, $produto->getIdProduto());
                 $stmt-> execute();
                 $result = $stmt->fetchAll();
                 return $result;

@@ -6,8 +6,8 @@
         
             <form action="#">
                 <p>Cadastrar produto:</p>
-                Nome do produto: <input type="text">
-                Quantidade: <input type="number">
+                Nome do produto: <input type="text" name="name">
+                Quantidade: <input type="number" name="quantidade">
                 <button type="submit">cadastrar</button>
             </form>
     </body>
