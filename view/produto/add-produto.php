@@ -13,14 +13,22 @@
             <center>
             <br><br><br>
             <div class="card" style="width: 20rem;">
-            <form class="container-sm">
+            <form class="container-sm" action="../add-product-instance.php" method="POST">
                 <div class="mb-3">
                     <label for="producttype" class="form-label">Nome do Produto</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Descricão</label>
+                    <input type="text" class="form-control" name="descricao">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Quantidade</label>
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" name="quantidade">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Preço</label>
+                    <input type="number" class="form-control" name="preco">
                 </div>
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
             </form>
