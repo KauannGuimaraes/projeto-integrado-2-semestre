@@ -3,11 +3,10 @@
         <link href="../bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-
         <div class="card" >
                 <div class="card-header">
-                    <div class="alert alert-danger" role="alert">
-                        <center> Setor para Descrementar de Produtos </center>
+                    <div class="alert alert-warning" role="alert">
+                        <center> Setor para Descrementar Produtos </center>
                     </div>
                 </div>
             </div>    
@@ -23,7 +22,7 @@
                     <label for="exampleInputPassword1" class="form-label">Quantidade</label>
                     <input type="number" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <button type="submit" class="btn btn-warning">descrementar</button>
             </form>
             </div>
             </center> 
