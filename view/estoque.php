@@ -15,7 +15,7 @@
                 <li><a href="produto/decrement-produto.php">Descrementar Produto</a></li>
                 <li><a href="produto/delete-produto.php">Remover Produto</a></li>
                 <li><a href="produto/increment-produto.php">Incrementar Produto</a></li>
-                <li><a href="estoque.php">Usuario</a></li>
+                <li><a href="estoque.php">Estoque</a></li>
             </ul>
         </div>
     </nav><br><br>
