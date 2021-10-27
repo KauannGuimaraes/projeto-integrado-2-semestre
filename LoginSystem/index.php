@@ -1,29 +1,29 @@
 <?php 
 
-include 'config.php';
+//include 'config.php';
 
 session_start();
 
 error_reporting(0);
 
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['logged'])) {
     header("Location: welcome.php");
 }
 
-if (isset($_POST['submit'])) {
-	$email = $_POST['email'];
-	$password = md5($_POST['password']);
+// if (isset($_POST['submit'])) {
+// 	$email = $_POST['email'];
+// 	$password = md5($_POST['password']);
 
-	$sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-	$result = mysqli_query($conn, $sql);
-	if ($result->num_rows > 0) {
-		$row = mysqli_fetch_assoc($result);
-		$_SESSION['username'] = $row['username'];
-		header("Location: welcome.php");
-	} else {
-		echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
-	}
-}
+// 	$sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+// 	$result = mysqli_query($conn, $sql);
+// 	if ($result->num_rows > 0) {
+// 		$row = mysqli_fetch_assoc($result);
+// 		$_SESSION['username'] = $row['username'];
+// 		header("Location: welcome.php");
+// 	} else {
+// 		echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
+// 	}
+// }
 
 ?>
 
@@ -41,13 +41,13 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
 	<div class="container">
-		<form action="" method="POST" class="login-email">
+		<form action="login-instance.php" method="POST" class="login-email">
 			<p class="login-text" style="font-size: 3rem; font-weight: 800;">Login</p>
 			<div class="input-group">
-				<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
+				<input type="email" placeholder="Email" name="email" required>
 			</div>
 			<div class="input-group">
-				<input type="password" placeholder="Senha" name="password" value="<?php echo $_POST['password']; ?>" required>
+				<input type="password" placeholder="Senha" name="password" required>
 			</div>
 			<div class="input-group">
 				<button name="submit" class="btn">Login</button>

@@ -1,6 +1,11 @@
 
 <?php require_once "../acess/index.php"; ?>
-
+<?php
+    session_start();    
+    require "../../Controller/Usuario.php";
+    $login = new Usuario();
+    $login->checkLogin();
+?>
 <html>
     <head>
         <link href="../bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet">

@@ -1,5 +1,11 @@
 
 <?php require '../Model/ProdutoDAO.php' ?>
+<?php
+    session_start();    
+    require "../Controller/Usuario.php";
+    $login = new Usuario();
+    $login->checkLogin();
+?>
 <html>
     <head>
     <link href="acess/style.css" rel="stylesheet">
