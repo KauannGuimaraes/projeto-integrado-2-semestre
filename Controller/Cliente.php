@@ -1,5 +1,5 @@
 <?php
-    public class Cliente{
+    class Cliente{
         private $idCliente;
         private $nomeCliente;
         private $enderecoCliente;
