@@ -28,31 +28,7 @@
     </nav><br><br>
     
     <center>
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Nome:</th>
-      <th scope="col">Descrição Produto:</th>
-      <th scope="col">Quantidade:</th>
-      <th scope="col">Preço:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php
-        $productDao = new ProdutoDAO();
-        $result = $productDao->selecionaProdutos();
-        foreach($result as $result){ ?>
-    <tr>
-      <td><?php echo $result['idProduto'] ?></td>
-      <td><?php echo $result['NomeProduto'] ?></td>
-      <td><?php echo $result['DescricaoProduto'] ?></td>
-      <td><?php echo $result['QuantidadeProduto'] ?></td>
-      <td><?php echo $result['PrecoProduto'] ?></td>
-    </tr>
-    <?php  } ?>
-  </tbody>
-</table>
+    <a href="LoginSystem/logout.php" class="btn btn-danger">Logout</a>
 </center>
 </body>
 </html>
