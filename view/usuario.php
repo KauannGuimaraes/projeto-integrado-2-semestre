@@ -22,8 +22,7 @@
                 <li><a href="produto/delete-produto.php">Remover Produto</a></li>
                 <li><a href="produto/increment-produto.php">Incrementar Produto</a></li>
                 <li><a href="estoque.php">Estoque</a></li>
-                <li><a href="usuario.php"><?php echo $_SESSION['username'];
-                ?></a></li>
+                <li><a href="usuario.php"><?php echo $_SESSION['username'] ?></a></li>
             </ul>
         </div>
     </nav><br><br>

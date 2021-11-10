@@ -50,9 +50,9 @@
         }
         public function checkLogin() {
             if (isset($_SESSION['logged'])){
-                //header("Location:../../../../projecao/projeto-integrado-2-semestre/view/produto/add-produto.php");
+                //header("Location:view/estoque.php");
             } else {
-                header("Location:../../../../projecao/projeto-integrado-2-semestre/LoginSystem/index.php");
+                header("Location:LoginSystem/index.php");
             }
         }
     }

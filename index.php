@@ -1,6 +1,4 @@
+<?php require 'Model/ProdutoDAO.php' ?>
 <?php
-    session_start();    
-    require "Controller/Usuario.php";
-    $login = new Usuario();
-    $login->checkLogin();
+    header("Location:view/estoque.php");
 ?>

@@ -1,5 +1,5 @@
-<?php require "../Model/EmpregadoDAO.php" ?>
-<?php require "../Controller/Usuario.php" ?>
+<?php require "../../Model/EmpregadoDAO.php" ?>
+<?php require "../../Controller/Usuario.php" ?>
 <?php
 session_start();
 $empDao = new EmpregadoDAO();
@@ -12,6 +12,8 @@ if ($result == null){
     header("Location:index.php");
 } else {
     $_SESSION['logged'] = true;
-    header("Location:../view/estoque.php");
+    $_SESSION['username'] = $result['NomeEmpregado'];
+    $_SESSION['idUser'] = $result['idEmpregado'];
+    header("Location:../estoque.php");
 }
 ?>

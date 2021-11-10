@@ -22,7 +22,7 @@
                 $stmt->bindValue(1, $Empregado->getEmailUsuario());
                 $stmt->bindValue(2, $Empregado->getSenhaUsuario());
                 $stmt-> execute();
-                $result = $stmt->fetchAll();
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 return $result;
             } catch (PDOException $ex) {
                 echo $ex;
