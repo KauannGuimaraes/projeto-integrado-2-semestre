@@ -69,8 +69,7 @@
                 $pdo = Conexao::getInstance();
                 $sql = ("insert into pessoa(NomePessoa, TipoPessoa) values (?,'Fornecedor')");
                 $stmt = $pdo->prepare($sql);
-                $stmt->bindValue(1, $Fornecedor->getNomeFornecedor());
-                $stmt->bindValue(2, $Fornecedor->getTipoFornecedor());
+                $stmt->bindValue(1, $Fornecedor->getNomePessoa());
                 $stmt->execute();
             } catch (PDOException $ex) {
                 echo $ex;
@@ -81,8 +80,7 @@
                     $pdo = Conexao::getInstance();
                     $sql = ("insert into pessoa(NomePessoa, TipoPessoa) values (?,'Cliente' )");
                     $stmt = $pdo->prepare($sql);
-                    $stmt->bindValue(1, $Cliente->getNomeCliente());
-                    $stmt->bindValue(2, $Cliente->getTipoCliente());
+                    $stmt->bindValue(1, $Cliente->getNomePessoa());
                     $stmt->execute();
                 } catch (PDOException $ex) {
                     echo $ex;
