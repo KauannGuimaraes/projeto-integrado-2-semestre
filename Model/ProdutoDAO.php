@@ -4,7 +4,7 @@
         function selecionaProduto($produto){
             try {
                 $pdo = Conexao::getInstance();
-                $sql = ("select * from Produto where idProduto = ?");
+                $sql = ("select * from produto where idProduto = ?");
                 $stmt= $pdo->prepare($sql);
                 $stmt->bindValue(1, $produto->getIdProduto());
                 $stmt-> execute();
@@ -17,7 +17,7 @@
         function atualizaProduto($produto){
             try {
                 $pdo = Conexao::getInstance();
-                $sql = ("update Produto set NomeProduto = ?, DescricaoProduto = ?, QuantidadeProduto = ?, PrecoProduto = ? where idProduto = ?");
+                $sql = ("update produto set NomeProduto = ?, DescricaoProduto = ?, QuantidadeProduto = ?, PrecoProduto = ? where idProduto = ?");
                 $stmt= $pdo->prepare($sql);
                 $stmt->bindValue(1, $produto->getNomeProduto());
                 $stmt->bindValue(2, $produto->getDescricaoProduto());
@@ -34,7 +34,7 @@
         function incrementaProduto($produto){
             try {
                 $pdo = Conexao::getInstance();
-                $sql = ("update Produto set QuantidadeProduto = ? where idProduto = ?");
+                $sql = ("update produto set QuantidadeProduto = ? where idProduto = ?");
                 $stmt= $pdo->prepare($sql);
                 $stmt->bindValue(1, $produto->getQuantidadeProduto());
                 $stmt->bindValue(2, $produto->getIdProduto());
@@ -48,7 +48,7 @@
         function decrementaProduto($produto){
             try {
                 $pdo = Conexao::getInstance();
-                $sql = ("update Produto set QuantidadeProduto = ? where idProduto = ?");
+                $sql = ("update produto set QuantidadeProduto = ? where idProduto = ?");
                 $stmt= $pdo->prepare($sql);
                 $stmt->bindValue(1, $produto->getQuantidadeProduto());
                 $stmt->bindValue(2, $produto->getIdProduto());
@@ -62,7 +62,7 @@
         function selecionaProdutos(){
             try {
                 $pdo = Conexao::getInstance();
-                $sql = ("select * from Produto");
+                $sql = ("select * from produto");
                 $stmt= $pdo->prepare($sql);
                 $stmt-> execute();
                 $result = $stmt->fetchAll();
@@ -74,7 +74,7 @@
         function insereProduto($produto){
             try {
                 $pdo = Conexao::getInstance();
-                $sql = ("insert into Produto(NomeProduto, DescricaoProduto, QuantidadeProduto, PrecoProduto, Empregado_idEmpregado) values (?, ?, ?, ?, 1)");
+                $sql = ("insert into produto(NomeProduto, DescricaoProduto, QuantidadeProduto, PrecoProduto, Empregado_idEmpregado) values (?, ?, ?, ?, 1)");
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindValue(1, $produto->getNomeProduto());
                 $stmt->bindValue(2, $produto->getDescricaoProduto());
@@ -88,7 +88,7 @@
         function deleteProduto($produto){
             try {
                 $pdo = Conexao::getInstance();
-                $sql = ("delete from Produto WHERE idProduto = ?");
+                $sql = ("delete from produto WHERE idProduto = ?");
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindValue(1, $produto->getIdProduto());
                 $stmt->execute();
