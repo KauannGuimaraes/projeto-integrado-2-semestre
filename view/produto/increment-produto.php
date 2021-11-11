@@ -37,7 +37,7 @@
                         <?php $clieDao = new ClienteDAO();
                         $result = $clieDao->selecionaClientes();
                         foreach($result as $result) {
-                            echo "<option value=".$result['idCliente'].">".$result['NomeCliente']."</option>";
+                            echo "<option value=".$result['idPessoa'].">".$result['NomePessoa']."</option>";
                         } ?>
                     </select>
                 </div>

@@ -36,7 +36,7 @@
                         <?php $clieDao = new ClienteDAO();
                         $result = $clieDao->selecionaClientes();
                         foreach($result as $result) {
-                            echo "<option value=".$result['idCliente'].">".$result['NomeCliente']."</option>";
+                            echo "<option value=".$result['idPessoa'].">".$result['NomePessoa']."</option>";
                         } ?>
                     </select>
                 </div>
@@ -47,7 +47,7 @@
             <center>
             <br><br><br>
             <div class="card" style="width: 20rem;">
-            <form class="container-sm" action="../add-pessoa-instance.php" method="POST">
+            <form class="container-sm" action="../add-cliente-instance.php" method="POST">
                 <div class="mb-3">
                     <label for="producttype" class="form-label">Nome do cliente:</label>
                     <input type="text" class="form-control" name="nome">

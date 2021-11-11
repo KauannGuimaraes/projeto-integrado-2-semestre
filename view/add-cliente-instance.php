@@ -1,10 +1,10 @@
 <?php
     require_once "../Model/ClienteDAO.php";
     require_once "../Controller/Cliente.php";
-    $cliente = new Cliente();
+    $cliente = new Pessoa();
     $clienteDao = new ClienteDAO();
-    $cliente->setNomeCliente($_POST['nome']);
-    $cliente->setEnderecoCliente($_POST['endereco']);
+    $cliente->setNomePessoa($_POST['nome']);
+    $cliente->setEnderecoPessoa($_POST['endereco']);
     $clienteDao->insereCliente($cliente);
     header("Location:produto/decrement-produto.php")
 ?>
