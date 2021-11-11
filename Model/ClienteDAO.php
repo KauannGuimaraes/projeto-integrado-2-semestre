@@ -32,7 +32,19 @@
         function selecionaClientes(){
             try {
                 $pdo = Conexao::getInstance();
-                $sql = ("select * from Pessoa");
+                $sql = ("select * from Pessoa where TipoPessoa='Cliente'");
+                $stmt= $pdo->prepare($sql);
+                $stmt-> execute();
+                $result = $stmt->fetchAll();
+                return $result;
+            } catch (PDOException $ex) {
+                echo $ex;
+            }
+        }
+        function selecionaFornecedores(){
+            try {
+                $pdo = Conexao::getInstance();
+                $sql = ("select * from Pessoa where TipoPessoa='Fornecedor'");
                 $stmt= $pdo->prepare($sql);
                 $stmt-> execute();
                 $result = $stmt->fetchAll();

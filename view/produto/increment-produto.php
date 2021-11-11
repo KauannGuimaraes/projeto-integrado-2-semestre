@@ -35,7 +35,7 @@
                     <label for="exampleInputPassword1" class="form-label">Cliente:</label>
                     <select id="productType" name="productType">
                         <?php $clieDao = new ClienteDAO();
-                        $result = $clieDao->selecionaClientes();
+                        $result = $clieDao->selecionaFornecedores();
                         foreach($result as $result) {
                             echo "<option value=".$result['idPessoa'].">".$result['NomePessoa']."</option>";
                         } ?>
