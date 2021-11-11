@@ -41,18 +41,18 @@
                 echo $ex;
             }
         }
-        function insereCliente($Cliente){
-            try {
-                $pdo = Conexao::getInstance();
-                $sql = ("insert into Cliente(NomeCliente, EnderecoCliente) values (?, ?)");
-                $stmt = $pdo->prepare($sql);
-                $stmt->bindValue(1, $Cliente->getNomeCliente());
-                $stmt->bindValue(2, $Cliente->getEnderecoCliente());
-                $stmt->execute();
-            } catch (PDOException $ex) {
-                echo $ex;
-            }
-        }
+//        function insereCliente($Cliente){
+ //           try {
+ //               $pdo = Conexao::getInstance();
+ //               $sql = ("insert into Cliente(NomeCliente, EnderecoCliente) values (?, ?)");
+ //               $stmt = $pdo->prepare($sql);
+ //               $stmt->bindValue(1, $Cliente->getNomeCliente());
+ //               $stmt->bindValue(2, $Cliente->getEnderecoCliente());
+ //               $stmt->execute();
+ //           } catch (PDOException $ex) {
+ //               echo $ex;
+ //           }
+ //       }
         function deleteCliente($Cliente){
             try {
                 $pdo = Conexao::getInstance();
@@ -64,4 +64,27 @@
                 echo $ex;
             }
         }
+        function insereFuncionario($Fornecedor){
+            try {
+                $pdo = Conexao::getInstance();
+                $sql = ("insert into Pessoa(NomePessoa, TipoPessoa) values (?,'Fornecedor')");
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindValue(1, $Fornecedor->getNomeFornecedor());
+                $stmt->bindValue(2, $Fornecedor->getTipoFornecedor());
+                $stmt->execute();
+            } catch (PDOException $ex) {
+                echo $ex;
+            }
+            function insereCliente($Pessoa){
+                try {
+                    $pdo = Conexao::getInstance();
+                    $sql = ("insert into Pessoa(NomePessoa, TipoPessoa) values (?,'Cliente' )");
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->bindValue(1, $Cliente->getNomeCliente());
+                    $stmt->bindValue(2, $Cliente->getTipoCliente());
+                    $stmt->execute();
+                } catch (PDOException $ex) {
+                    echo $ex;
+                }
+        
     }

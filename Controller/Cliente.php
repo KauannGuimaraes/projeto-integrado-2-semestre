@@ -1,27 +1,27 @@
 <?php
-    class Cliente{
-        private $idCliente;
-        private $nomeCliente;
-        private $enderecoCliente;
+    class Pessoa{
+        private $idPessoa;
+        private $nomePessoa;
+        private $enderecoPessoa;
 
-        public function getIdCliente(){
-            return $this->idCliente;
+        public function getIdPessoa(){
+            return $this->idPessoa;
         }
-        public function setIdCliente($m){
-            $this->idCliente = $m;
-        }
-
-        public function getNomeCliente(){
-            return $this->nomeCliente;
-        }
-        public function setNomeCliente($m) {
-            $this->nomeCliente = $m;
+        public function setIdPessoa($m){
+            $this->idPessoa = $m;
         }
 
-        public function getEnderecoCliente(){
-            return $this->enderecoCliente;
+        public function getNomePessoa(){
+            return $this->nomePessoa;
         }
-        public function setEnderecoCliente($m) {
-            $this->enderecoCliente = $m;
+        public function setNomePessoa($m) {
+            $this->nomePessoa = $m;
+        }
+
+        public function getEnderecoPessoa(){
+            return $this->enderecoPessoa;
+        }
+        public function setEnderecoPessoa($m) {
+            $this->enderecoPessoa = $m;
         }
     }
