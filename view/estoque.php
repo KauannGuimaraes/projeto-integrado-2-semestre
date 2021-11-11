@@ -33,7 +33,6 @@
   <thead>
     <tr>
       <th scope="col">Id</th>
-      <th scope="col">Nome:</th>
       <th scope="col">Descrição Produto:</th>
       <th scope="col">Quantidade:</th>
       <th scope="col">Preço:</th>
@@ -46,7 +45,6 @@
         foreach($result as $result){ ?>
     <tr>
       <td><?php echo $result['idProduto'] ?></td>
-      <td><?php echo $result['NomeProduto'] ?></td>
       <td><?php echo $result['DescricaoProduto'] ?></td>
       <td><?php echo $result['QuantidadeProduto'] ?></td>
       <td><?php echo $result['PrecoProduto'] ?></td>

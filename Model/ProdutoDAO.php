@@ -17,13 +17,12 @@
         function atualizaProduto($produto){
             try {
                 $pdo = Conexao::getInstance();
-                $sql = ("update Produto set NomeProduto = ?, DescricaoProduto = ?, QuantidadeProduto = ?, PrecoProduto = ? where idProduto = ?");
+                $sql = ("update Produto set DescricaoProduto = ?, QuantidadeProduto = ?, PrecoProduto = ? where idProduto = ?");
                 $stmt= $pdo->prepare($sql);
-                $stmt->bindValue(1, $produto->getNomeProduto());
-                $stmt->bindValue(2, $produto->getDescricaoProduto());
-                $stmt->bindValue(3, $produto->getQuantidadeProduto());
-                $stmt->bindValue(4, $produto->getPrecoProduto());
-                $stmt->bindValue(5, $produto->getIdProduto());
+                $stmt->bindValue(1, $produto->getDescricaoProduto());
+                $stmt->bindValue(2, $produto->getQuantidadeProduto());
+                $stmt->bindValue(3, $produto->getPrecoProduto());
+                $stmt->bindValue(4, $produto->getIdProduto());
                 $stmt-> execute();
                 $result = $stmt->fetchAll();
                 return $result;
@@ -76,9 +75,9 @@
                 $pdo = Conexao::getInstance();
                 $sql = ("insert into Produto( DescricaoProduto, QuantidadeProduto, PrecoProduto, Empregado_idEmpregado) values (?, ?, ?, 1)");
                 $stmt = $pdo->prepare($sql);
-                $stmt->bindValue(2, $produto->getDescricaoProduto());
-                $stmt->bindValue(3, $produto->getQuantidadeProduto());
-                $stmt->bindValue(4, $produto->getPrecoProduto());
+                $stmt->bindValue(1, $produto->getDescricaoProduto());
+                $stmt->bindValue(2, $produto->getQuantidadeProduto());
+                $stmt->bindValue(3, $produto->getPrecoProduto());
                 $stmt->execute();
             } catch (PDOException $ex) {
                 echo $ex;
