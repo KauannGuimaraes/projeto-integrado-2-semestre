@@ -1,10 +1,12 @@
 <?php require_once "../acess/index.php"; ?>
 <?php
-    session_start();    
+    //ssession_start();    
     require "../../Controller/Usuario.php";
     require "../../Model/ClienteDAO.php"; 
+    require "../../Model/ProdutoDAO.php"; 
     $login = new Usuario();
     $login->checkLogin();
+    $produtoDao = new ProdutoDAO();
 ?>
 <html>
     <head>
@@ -20,45 +22,72 @@
             </div>    
             <center>
             <br><br><br>
+            
+            
+            <div class="row justify-content-md-center" data-masonry='{"percentPosition": true }'>
+        <div class="col-2 m-3">
             <div class="card" style="width: 20rem;">
-            <form class="container-sm" action="../decrement-product-instance.php" method="POST">
-                <div class="mb-3">
-                    <label for="producttype" class="form-label">id do produto:</label>
-                    <input type="text" class="form-control" name="idProduto">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Quantidade:</label>
-                    <input type="number" class="form-control" name="quantidade">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Cliente:</label>
-                    <select id="cliente" name="cliente">
+                <form  action="../add-cart.php" method="POST">
+                    <br>
+
+                <label for="exampleInputPassword1" class="form-label">Produto:</label>
+                        <select id="produto" name="idProduto">
+                        <?php
+                        $result = $produtoDao->selecionaProdutos();
+                        foreach($result as $result) {
+                            echo "<option value=".$result['idProduto'].">".$result['DescricaoProduto']."</option>";
+                        } ?>
+                    </select>
+                    <br>
+                        <label for="exampleInputPassword1" class="form-label">Quantidade:</label>
+                        <input type="number" class="form-control" name="QuantidadeProduto">
+                        <br>
+                        
+                    <button type="submit" name="cart" value="add" class="btn btn-warning">adicionar a ordem</button>
+                    <button type="submit" name="cart" value="clean" class="btn btn-warning">limpar ordem</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-2 m-3">
+        <div class="card" style="width: 20rem;">
+            <form class="" action="../decrement-product-instance.php" method="POST">
+            <?php 
+            if(isset($_SESSION['cart_item'])) {
+            foreach ($_SESSION["cart_item"] as $item){
+            $item_price = $item["QuantidadeProduto"]*$item["PrecoProduto"];
+            echo $item['nome']." | ";
+            echo "R$".$item_price." | ";
+            echo $item["QuantidadeProduto"]." Uni | <br>";
+            } }?>
+            <label for="exampleInputPassword1" class="form-label">Cliente:</label>
+                        <select id="cliente" name="cliente">
                         <?php $clieDao = new ClienteDAO();
                         $result = $clieDao->selecionaClientes();
                         foreach($result as $result) {
                             echo "<option value=".$result['idPessoa'].">".$result['NomePessoa']."</option>";
                         } ?>
                     </select>
-                </div>
-                <button type="submit" class="btn btn-warning">descrementar</button>
+
+                <button type="submit" class="btn btn-warning">Decrementar do estoque</button>
             </form>
             </div>
-            </center>
-            <center>
-            <br><br><br>
-            <div class="card" style="width: 20rem;">
-            <form class="container-sm" action="../add-cliente-instance.php" method="POST">
-                <div class="mb-3">
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+    <div class="col-2 m-3">
+        <div class="card" style="width: 20rem;">
+            <form class="" action="../add-cliente-instance.php" method="POST">
                     <label for="producttype" class="form-label">Nome do cliente:</label>
                     <input type="text" class="form-control" name="nome">
-                </div>
-                <div class="mb-3">
+
                     <label for="exampleInputPassword1" class="form-label">Endereco do cliente:</label>
                     <input type="text" class="form-control" name="endereco">
-                </div>
+
                 <button type="submit" class="btn btn-warning">cadastrar cliente</button>
             </form>
             </div>
-            </center>  
+        </div>
+    </div>
+    </center> 
     </body>
 </html>

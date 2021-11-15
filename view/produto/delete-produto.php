@@ -1,6 +1,6 @@
 <?php require_once "../acess/index.php"; ?>
 <?php
-    session_start();    
+    //session_start();    
     require "../../Controller/Usuario.php";
     $login = new Usuario();
     $login->checkLogin();

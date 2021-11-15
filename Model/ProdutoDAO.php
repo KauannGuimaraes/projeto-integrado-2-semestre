@@ -6,7 +6,7 @@
                 $pdo = Conexao::getInstance();
                 $sql = ("select * from Produto where idProduto = ?");
                 $stmt= $pdo->prepare($sql);
-                $stmt->bindValue(1, $produto->getIdProduto());
+                $stmt->bindValue(1, $produto);
                 $stmt-> execute();
                 $result = $stmt->fetchAll();
                 return $result;
