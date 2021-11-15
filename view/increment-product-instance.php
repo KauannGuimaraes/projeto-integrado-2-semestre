@@ -9,18 +9,25 @@
     $ordem = new Ordem();
     $data = date("Y-m-d"); 
     $ordem->setDataOrdem($data); // atribui data
-    $incremento = $_POST['quantidade'];
-    $produto->setIdProduto($_POST['idProduto']);
     $ordem->setIdCliente($_POST['fornecedor']); // atribui cliente
-    $result = $produtoDao->selecionaProduto($produto);
-    foreach($result as $result){
-        $idProduto = $result['idProduto'];
-        $quantidadeProduto = $result['QuantidadeProduto'];
+    $ordemid = $ordemDao->insereOrdemEntrada($ordem); // cria ordem
+    $array = $_POST['itemArray'];
+    $arrayitem = unserialize($array);
+    foreach($arrayitem as $arrayitem){
+        $itemid = $arrayitem['idProduto'];
+        $itemnome = $arrayitem['nome'];
+        $itemquantidade = $arrayitem['QuantidadeProduto'];
+        $result = $produtoDao->selecionaProduto($itemid);
+        foreach($result as $result){
+          $quantidadeProduto = $result['QuantidadeProduto'];
+          $quantidadeProduto = $quantidadeProduto + $itemquantidade;
+          $produto->setQuantidadeProduto($quantidadeProduto);
+          $produto->setIdProduto($itemid);
+          $produtoDao->incrementaProduto($produto);
+        }
+        $ordemDao->inserirOrdemProduto($ordemid,$itemid,$itemquantidade,$precoProduto);
     }
-    $ordemDao->insereOrdemEntrada($ordem);
-    $produto->setQuantidadeProduto($quantidadeProduto);
-    $quantidade = $produto->getQuantidadeProduto() + $incremento;
-    $produto->setQuantidadeProduto($quantidade);
-    $produtoDao->incrementaProduto($produto);
-    header("Location:produto/increment-produto.php")
+    //$ordemDao->atualizaOrdem($ordem);
+    // $produto->setQuantidadeProduto($quantidadeProduto);
+     header("Location:produto/increment-produto.php")
 ?>

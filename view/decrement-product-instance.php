@@ -31,7 +31,8 @@
         $ordemDao->inserirOrdemProduto($ordemid,$itemid,$itemquantidade,$precoProduto);
     }
     $ordem->setValorOrdem($precototal); // atribui preco
+    echo $ordem->getValorOrdem();
     $ordemDao->atualizaOrdem($ordem);
-    // $produto->setQuantidadeProduto($quantidadeProduto);
-     header("Location:produto/decrement-produto.php")
+    //$produto->setQuantidadeProduto($quantidadeProduto);
+    header("Location:produto/decrement-produto.php");
 ?>

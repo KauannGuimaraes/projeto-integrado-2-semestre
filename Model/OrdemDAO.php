@@ -52,6 +52,8 @@
                 $stmt->bindValue(3, NULL);
                 $stmt->bindValue(4, $Ordem->getIdCliente());
                 $stmt->execute();
+                $id = $pdo->lastInsertId();
+                return $id;
             } catch (PDOException $ex) {
                 echo $ex;
             }

@@ -43,8 +43,8 @@
                         <input type="number" class="form-control" name="QuantidadeProduto">
                         <br>
                         
-                    <button type="submit" name="cart" value="add" class="btn btn-warning">adicionar a ordem</button>
-                    <button type="submit" name="cart" value="clean" class="btn btn-warning">limpar ordem</button>
+                    <button type="submit" name="cart" value="addD" class="btn btn-warning">adicionar a ordem</button>
+                    <button type="submit" name="cart" value="cleanD" class="btn btn-warning">limpar ordem</button>
                 </form>
             </div>
         </div>
@@ -52,8 +52,8 @@
         <div class="card" style="width: 20rem;">
             <form class="" action="../decrement-product-instance.php" method="POST">
             <?php 
-            if(isset($_SESSION['cart_item'])) {
-            foreach ($_SESSION["cart_item"] as $item){
+            if(isset($_SESSION['cart_itemD'])) {
+            foreach ($_SESSION["cart_itemD"] as $item){
             $itemid=$item["idProduto"];
             $itemnome=$item["nome"];
             $itempreco=$item["PrecoProduto"];
@@ -63,7 +63,7 @@
             echo $itemnome." | ";
             echo "R$".$itemprecototal." | ";
             echo $itemquantidade." Uni | <br>";
-            $itemArray = serialize($_SESSION['cart_item']);
+            $itemArray = serialize($_SESSION['cart_itemD']);
             echo "<input type='hidden' name='itemArray' value=".$itemArray.">";
             } }?>
             

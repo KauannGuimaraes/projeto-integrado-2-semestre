@@ -6,5 +6,5 @@
     $cliente->setNomePessoa($_POST['nome']);
     $cliente->setEnderecoPessoa($_POST['endereco']);
     $clienteDao->insereFuncionario($cliente);
-    header("Location:produto/decrement-produto.php")
+    header("Location:produto/increment-produto.php")
 ?>
