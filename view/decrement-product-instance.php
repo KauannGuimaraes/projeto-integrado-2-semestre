@@ -30,6 +30,7 @@
         }
         $ordemDao->inserirOrdemProduto($ordemid,$itemid,$itemquantidade,$precoProduto);
     }
+    $ordem->setIdOrdem($ordemid);
     $ordem->setValorOrdem($precototal); // atribui preco
     echo $ordem->getValorOrdem();
     $ordemDao->atualizaOrdem($ordem);
