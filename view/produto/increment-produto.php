@@ -33,7 +33,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Cliente:</label>
-                    <select id="productType" name="productType">
+                    <select id="fornecedor" name="fornecedor">
                         <?php $clieDao = new ClienteDAO();
                         $result = $clieDao->selecionaFornecedores();
                         foreach($result as $result) {

@@ -1,5 +1,5 @@
 <?php
-    private class Ordem {
+    class Ordem {
         private $idOrdem;
         private $dataOrdem;
         private $valorOrdem;

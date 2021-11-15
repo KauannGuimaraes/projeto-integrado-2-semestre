@@ -49,21 +49,22 @@
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindValue(1, $Ordem->getDataOrdem());
                 $stmt->bindValue(2, "Entrada");
-                $stmt->bindValue(3, $Ordem->getValorOrdem());
-                $stmt->bindValue(4, $Ordem->getId());
+                $stmt->bindValue(3, NULL);
+                $stmt->bindValue(4, $Ordem->getIdCliente());
                 $stmt->execute();
             } catch (PDOException $ex) {
                 echo $ex;
             }
         }
-        function insereOrdemEntrada($Ordem){
+        function insereOrdemSaida($Ordem){
             try {
                 $pdo = Conexao::getInstance();
-                $sql = ("insert into Ordem(Data, Tipo, Pessoa_idPessoa) values (?, ?, ?)");
+                $sql = ("insert into Ordem(Data, Tipo, Valor, Pessoa_idPessoa) values (?, ?, ?, ?)");
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindValue(1, $Ordem->getDataOrdem());
-                $stmt->bindValue(2, "Entrada");
-                $stmt->bindValue(4, $Ordem->getId());
+                $stmt->bindValue(2, "Saida");
+                $stmt->bindValue(3, $Ordem->getValorOrdem());
+                $stmt->bindValue(4, $Ordem->getIdCliente());
                 $stmt->execute();
             } catch (PDOException $ex) {
                 echo $ex;
