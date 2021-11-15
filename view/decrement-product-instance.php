@@ -9,20 +9,29 @@
     $ordem = new Ordem();
     $data = date("Y-m-d"); 
     $ordem->setDataOrdem($data); // atribui data
-    //$quantidadeSelecionado = $_POST['QuantidadeProduto'];
-    //$produto->setIdProduto($_POST['idProduto']);
-    //$ordem->setIdCliente($_POST['cliente']); // atribui cliente
-    //$result = $produtoDao->selecionaProduto($produto);
-    //foreach($result as $result){
-    //    $idProduto = $result['idProduto'];
-    //    $precoProduto = $result['PrecoProduto'];
-    //    $quantidadeProduto = $result['QuantidadeProduto'];
-    //}
-    // $valor = $quantidadeSelecionado * $precoProduto;
-    // $ordem->setValorOrdem($valor); // atribui preco
-    // $ordemDao->insereOrdemSaida($ordem);
-    // $quantidadeProduto = $quantidadeProduto - $quantidadeSelecionado;
+    $ordem->setIdCliente($_POST['cliente']); // atribui cliente
+    $ordemid = $ordemDao->insereOrdemSaida($ordem); // cria ordem
+    $array = $_POST['itemArray'];
+    $precototal;
+    $arrayitem = unserialize($array);
+    foreach($arrayitem as $arrayitem){
+        $itemid = $arrayitem['idProduto'];
+        $itemnome = $arrayitem['nome'];
+        $itemquantidade = $arrayitem['QuantidadeProduto'];
+        $result = $produtoDao->selecionaProduto($itemid);
+        foreach($result as $result){
+          $precoProduto = $result['PrecoProduto'];
+          $quantidadeProduto = $result['QuantidadeProduto'];
+          $precototal = $precototal + ($itemquantidade * $precoProduto); //preco total
+          $quantidadeProduto = $quantidadeProduto - $itemquantidade;
+          $produto->setQuantidadeProduto($quantidadeProduto);
+          $produto->setIdProduto($itemid);
+          $produtoDao->decrementaProduto($produto);
+        }
+        $ordemDao->inserirOrdemProduto($ordemid,$itemid,$itemquantidade,$precoProduto);
+    }
+    $ordem->setValorOrdem($precototal); // atribui preco
+    $ordemDao->atualizaOrdem($ordem);
     // $produto->setQuantidadeProduto($quantidadeProduto);
-    // $produtoDao->decrementaProduto($produto);
-    // header("Location:produto/decrement-produto.php")
+     header("Location:produto/decrement-produto.php")
 ?>

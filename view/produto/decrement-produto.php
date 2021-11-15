@@ -54,11 +54,19 @@
             <?php 
             if(isset($_SESSION['cart_item'])) {
             foreach ($_SESSION["cart_item"] as $item){
-            $item_price = $item["QuantidadeProduto"]*$item["PrecoProduto"];
-            echo $item['nome']." | ";
-            echo "R$".$item_price." | ";
-            echo $item["QuantidadeProduto"]." Uni | <br>";
+            $itemid=$item["idProduto"];
+            $itemnome=$item["nome"];
+            $itempreco=$item["PrecoProduto"];
+            $itemquantidade=$item["QuantidadeProduto"];
+            $itemprecototal = $itempreco*$itemquantidade;
+            echo $itemid." | ";
+            echo $itemnome." | ";
+            echo "R$".$itemprecototal." | ";
+            echo $itemquantidade." Uni | <br>";
+            $itemArray = serialize($_SESSION['cart_item']);
+            echo "<input type='hidden' name='itemArray' value=".$itemArray.">";
             } }?>
+            
             <label for="exampleInputPassword1" class="form-label">Cliente:</label>
                         <select id="cliente" name="cliente">
                         <?php $clieDao = new ClienteDAO();

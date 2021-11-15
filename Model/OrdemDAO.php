@@ -66,6 +66,8 @@
                 $stmt->bindValue(3, $Ordem->getValorOrdem());
                 $stmt->bindValue(4, $Ordem->getIdCliente());
                 $stmt->execute();
+                $id = $pdo->lastInsertId();
+                return $id;
             } catch (PDOException $ex) {
                 echo $ex;
             }
@@ -76,6 +78,20 @@
                 $sql = ("delete from Ordem WHERE idOrdem = ?");
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindValue(1, $Ordem->getIdOrdem());
+                $stmt->execute();
+            } catch (PDOException $ex) {
+                echo $ex;
+            }
+        }
+        function inserirOrdemProduto($ordemid,$itemid,$itemquantidade,$precoProduto){
+            try {
+                $pdo = Conexao::getInstance();
+                $sql = ("insert into Ordem_has_Produto(Ordem_idOrdem, Produto_idProduto, Quantidade, ValorItem) values (?, ?, ?, ?)");
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindValue(1, $ordemid);
+                $stmt->bindValue(2, $itemid);
+                $stmt->bindValue(3, $itemquantidade);
+                $stmt->bindValue(4, $precoProduto);
                 $stmt->execute();
             } catch (PDOException $ex) {
                 echo $ex;
