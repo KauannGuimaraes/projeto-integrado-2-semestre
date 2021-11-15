@@ -14,17 +14,15 @@
     </head>
     <body>
         <div class="card" >
-                <div class="card-header">
-                    <div class="alert alert-warning" role="alert">
-                        <center> Setor para Descrementar Produtos </center>
-                    </div>
+            <div class="card-header">
+                <div class="alert alert-warning" role="alert">
+                    <center> Setor para Descrementar Produtos </center>
                 </div>
-            </div>    
-            <center>
-            <br><br><br>
-            
-            
-            <div class="row justify-content-md-center" data-masonry='{"percentPosition": true }'>
+            </div>
+        </div>    
+        <center>
+        <br><br><br>
+        <div class="row justify-content-md-center" data-masonry='{"percentPosition": true }'>
         <div class="col-2 m-3">
             <div class="card" style="width: 20rem;">
                 <form  action="../add-cart.php" method="POST">
