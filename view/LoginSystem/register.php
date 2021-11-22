@@ -1,45 +1,40 @@
 <?php 
-
-include 'config.php';
-
-error_reporting(0);
-
 session_start();
 
 if (isset($_SESSION['username'])) {
     header("Location: index.php");
 }
 
-if (isset($_POST['submit'])) {
-	$username = $_POST['username'];
-	$email = $_POST['email'];
-	$password = md5($_POST['password']);
-	$cpassword = md5($_POST['cpassword']);
+// if (isset($_POST['submit'])) {
+// 	$username = $_POST['username'];
+// 	$email = $_POST['email'];
+// 	$password = md5($_POST['password']);
+// 	$cpassword = md5($_POST['cpassword']);
 
-	if ($password == $cpassword) {
-		$sql = "SELECT * FROM users WHERE email='$email'";
-		$result = mysqli_query($conn, $sql);
-		if (!$result->num_rows > 0) {
-			$sql = "INSERT INTO users (username, email, password)
-					VALUES ('$username', '$email', '$password')";
-			$result = mysqli_query($conn, $sql);
-			if ($result) {
-				echo "<script>alert('Oba! Novo Usuario cadastrado com Sucesso.')</script>";
-				$username = "";
-				$email = "";
-				$_POST['password'] = "";
-				$_POST['cpassword'] = "";
-			} else {
-				echo "<script>alert('Ops! Alguma coisa deu errada.')</script>";
-			}
-		} else {
-			echo "<script>alert('Ops! Email ja cadastrado.')</script>";
-		}
+// 	if ($password == $cpassword) {
+// 		$sql = "SELECT * FROM users WHERE email='$email'";
+// 		$result = mysqli_query($conn, $sql);
+// 		if (!$result->num_rows > 0) {
+// 			$sql = "INSERT INTO users (username, email, password)
+// 					VALUES ('$username', '$email', '$password')";
+// 			$result = mysqli_query($conn, $sql);
+// 			if ($result) {
+// 				echo "<script>alert('Oba! Novo Usuario cadastrado com Sucesso.')</script>";
+// 				$username = "";
+// 				$email = "";
+// 				$_POST['password'] = "";
+// 				$_POST['cpassword'] = "";
+// 			} else {
+// 				echo "<script>alert('Ops! Alguma coisa deu errada.')</script>";
+// 			}
+// 		} else {
+// 			echo "<script>alert('Ops! Email ja cadastrado.')</script>";
+// 		}
 		
-	} else {
-		echo "<script>alert('Senhas não combinam.')</script>";
-	}
-}
+// 	} else {
+// 		echo "<script>alert('Senhas não combinam.')</script>";
+// 	}
+// }
 
 ?>
 
@@ -57,19 +52,19 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
 	<div class="container">
-		<form action="" method="POST" class="login-email">
+		<form action="register-instance.php" method="POST" class="login-email">
             <p class="login-text" style="font-size: 3rem; font-weight: 800;">Registro</p>
 			<div class="input-group">
-				<input type="text" placeholder="Usuario" name="username" value="<?php echo $username; ?>" required>
+				<input type="text" placeholder="Usuario" name="username" required>
 			</div>
 			<div class="input-group">
-				<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
+				<input type="email" placeholder="Email" name="email" required>
 			</div>
 			<div class="input-group">
-				<input type="password" placeholder="Senha" name="password" value="<?php echo $_POST['password']; ?>" required>
+				<input type="password" placeholder="Senha" name="password" required>
             </div>
             <div class="input-group">
-				<input type="password" placeholder="Confirmar Senha" name="cpassword" value="<?php echo $_POST['cpassword']; ?>" required>
+				<input type="password" placeholder="Confirmar Senha" name="cpassword" required>
 			</div>
 			<div class="input-group">
 				<button name="submit" class="btn">Register</button>

@@ -60,12 +60,11 @@
         function insereEmpregado($Empregado){
             try {
                 $pdo = Conexao::getInstance();
-                $sql = ("insert into Empregado(NomeEmpregado, EmailEmpregado, PrivilegiosEmpregado, TipoEmpregado) values (?, ?, ?, ?)");
+                $sql = ("insert into Empregado(NomeEmpregado, EmailEmpregado, SenhaEmpregado) values (?, ?, ?)");
                 $stmt = $pdo->prepare($sql);
-                $stmt->bindValue(1, $Empregado->getNomeEmpregado());
-                $stmt->bindValue(2, $Empregado->getEmailEmpregado());
-                $stmt->bindValue(3, $Empregado->getPrivilegiosEmpregado());
-                $stmt->bindValue(4, $Empregado->getTipoEmpregado());
+                $stmt->bindValue(1, $Empregado->getNomeUsuario());
+                $stmt->bindValue(2, $Empregado->getEmailUsuario());
+                $stmt->bindValue(3, $Empregado->getSenhaUsuario());
                 $stmt->execute();
             } catch (PDOException $ex) {
                 echo $ex;
