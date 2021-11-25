@@ -70,14 +70,15 @@
                 echo $ex;
             }
         }
-        function insereProduto($produto){
+        function insereProduto($produto, $usuario){
             try {
                 $pdo = Conexao::getInstance();
-                $sql = ("insert into Produto( DescricaoProduto, QuantidadeProduto, PrecoProduto, Empregado_idEmpregado) values (?, ?, ?, 1)");
+                $sql = ("insert into Produto( DescricaoProduto, QuantidadeProduto, PrecoProduto, Empregado_idEmpregado) values (?, ?, ?, ?)");
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindValue(1, $produto->getDescricaoProduto());
                 $stmt->bindValue(2, $produto->getQuantidadeProduto());
                 $stmt->bindValue(3, $produto->getPrecoProduto());
+                $stmt->bindValue(4, $usuario->getIdUsuario());
                 $stmt->execute();
             } catch (PDOException $ex) {
                 echo $ex;

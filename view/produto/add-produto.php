@@ -23,16 +23,19 @@
             <div class="card" style="width: 20rem;">
             <form class="container-sm" action="../add-product-instance.php" method="POST">
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Nome do produto</label>
+                    <label for="quantidade" class="form-label">Nome do produto</label>
                     <input type="text" class="form-control" name="descricao">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Quantidade</label>
+                    <label for="quantidade" class="form-label">Quantidade</label>
                     <input type="number" class="form-control" name="quantidade">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Preço</label>
+                    <label for="quantidade" class="form-label">Preço</label>
                     <input type="number" class="form-control" name="preco">
+                </div>
+                <div class="mb-3">
+                    <input type="hidden" class="form-control" name="idusuario" value="<?php echo $_SESSION['idUser'] ?>">
                 </div>
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
             </form>
