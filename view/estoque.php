@@ -28,7 +28,7 @@
         <thead>
           <tr>
             <th scope="col">Id</th>
-            <th scope="col">Descrição Produto:</th>
+            <th scope="col">Nome do produto:</th>
             <th scope="col">Quantidade:</th>
             <th scope="col">Preço:</th>
           </tr>

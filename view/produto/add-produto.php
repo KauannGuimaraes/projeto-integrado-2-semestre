@@ -23,11 +23,7 @@
             <div class="card" style="width: 20rem;">
             <form class="container-sm" action="../add-product-instance.php" method="POST">
                 <div class="mb-3">
-                    <label for="producttype" class="form-label">Nome do Produto</label>
-                    <input type="text" class="form-control" name="name">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Descricão</label>
+                    <label for="exampleInputPassword1" class="form-label">Nome do produto</label>
                     <input type="text" class="form-control" name="descricao">
                 </div>
                 <div class="mb-3">
