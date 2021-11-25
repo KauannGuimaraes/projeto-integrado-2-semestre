@@ -4,8 +4,6 @@
         private $nomeUsuario;
         private $senhaUsuario;
         private $emailUsuario;
-        private $privilegioUsuario;
-        private $tipoUsuario;
 
         public function getIdUsuario(){
             return $this->idUsuario;
@@ -33,20 +31,6 @@
         }
         public function setEmailUsuario($m) {
             $this->emailUsuario = $m;
-        }
-
-        public function getPrivilegioUsuario(){
-            return $this->privilegioUsuario;
-        }
-        public function setPrivilegioUsuario($m){
-            $this->privilegioUsuario = $m;
-        }
-
-        public function getTipoUsuario(){
-            return $this->tipoUsuario;
-        }
-        public function setTipoUsuario($m) {
-            $this->tipoUsuario = $m;
         }
         public function checkLogin() {
             if (isset($_SESSION['logged'])){

@@ -17,7 +17,7 @@
         function selecionaAuthEmpregado($Empregado){
             try {
                 $pdo = Conexao::getInstance();
-                $sql = ("select * from Empregado where EmailEmpregado = ? and SenhaEmpregado = ?");
+                $sql = ("select * from Empregado where EmailEmpregado = ? and SenhaEmpregado = SHA2(?, 256)");
                 $stmt= $pdo->prepare($sql);
                 $stmt->bindValue(1, $Empregado->getEmailUsuario());
                 $stmt->bindValue(2, $Empregado->getSenhaUsuario());
@@ -31,12 +31,10 @@
         function atualizaEmpregado($Empregado){
             try {
                 $pdo = Conexao::getInstance();
-                $sql = ("update Empregado set NomeEmpregado = ?, EmailEmpregado = ?, PrivilegiosEmpregado = ?, TipoEmpregado = ? where idEmpregado = ?");
+                $sql = ("update Empregado set NomeEmpregado = ?, EmailEmpregado = ? where idEmpregado = ?");
                 $stmt= $pdo->prepare($sql);
                 $stmt->bindValue(1, $Empregado->getNomeEmpregado());
                 $stmt->bindValue(2, $Empregado->getEmailEmpregado());
-                $stmt->bindValue(3, $Empregado->getPrivilegiosEmpregado());
-                $stmt->bindValue(4, $Empregado->getTipoEmpregado());
                 $stmt->bindValue(5, $Empregado->getIdEmpregado());
                 $stmt-> execute();
                 $result = $stmt->fetchAll();
