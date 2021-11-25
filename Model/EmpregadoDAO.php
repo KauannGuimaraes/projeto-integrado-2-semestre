@@ -58,7 +58,7 @@
         function insereEmpregado($Empregado){
             try {
                 $pdo = Conexao::getInstance();
-                $sql = ("insert into Empregado(NomeEmpregado, EmailEmpregado, SenhaEmpregado) values (?, ?, ?)");
+                $sql = ("insert into Empregado(NomeEmpregado, EmailEmpregado, SenhaEmpregado) values (?, ?, SHA2(?,256))");
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindValue(1, $Empregado->getNomeUsuario());
                 $stmt->bindValue(2, $Empregado->getEmailUsuario());
