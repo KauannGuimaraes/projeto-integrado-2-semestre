@@ -43,4 +43,40 @@
                 echo $ex;
             }
         }
-        
+        function ExibirProdutos(){
+            try {
+                $pdo = Conexao::getInstance();
+                $sql = ("SELECT count(*) from Produto;");
+                $stmt= $pdo->prepare($sql);
+                $stmt-> execute();
+                $result = $stmt->fetchAll();
+                return $result;
+            } catch (PDOException $ex) {
+                echo $ex;
+            }
+        }
+        function ExibirClientes(){
+            try {
+                $pdo = Conexao::getInstance();
+                $sql = ("SELECT COUNT(*) from Pessoa where TipoPessoa='Cliente';");
+                $stmt= $pdo->prepare($sql);
+                $stmt-> execute();
+                $result = $stmt->fetchAll();
+                return $result;
+            } catch (PDOException $ex) {
+                echo $ex;
+            }
+        }
+        function QuantidadeFornecedor(){
+            try {
+                $pdo = Conexao::getInstance();
+                $sql = ("SELECT count(*) from Pessoa where TipoPessoa='Fornecedor';");
+                $stmt= $pdo->prepare($sql);
+                $stmt-> execute();
+                $result = $stmt->fetchAll();
+                return $result;
+            } catch (PDOException $ex) {
+                echo $ex;
+            }
+        }
+    }
