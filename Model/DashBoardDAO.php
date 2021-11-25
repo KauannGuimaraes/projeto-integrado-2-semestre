@@ -18,7 +18,7 @@
             try {
                 $pdo = Conexao::getInstance();
                 $sql = ("select NomePessoa, Valor from Ordem inner 
-                join Pessoa on Pessoa_idPessoa = idPessoa order by Valor desc;
+                join Pessoa on Pessoa_idPessoa = idPessoa where tipoPessoa = 'Cliente' order by Valor desc;
                 ");
                 $stmt= $pdo->prepare($sql);
                 $stmt-> execute();
@@ -43,7 +43,7 @@
                 echo $ex;
             }
         }
-        function ExibirProdutos(){
+        function ExibirTotalProdutos(){
             try {
                 $pdo = Conexao::getInstance();
                 $sql = ("SELECT count(*) from Produto;");
